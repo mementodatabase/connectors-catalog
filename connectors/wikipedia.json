@@ -1,0 +1,116 @@
+{
+  "type": "REST",
+  "endpoint": "https://en.wikipedia.org/api/rest_v1",
+  "resources": [
+    {
+      "name": "6ca3f91c-b518-487d-be1a-5fd927cdf81e",
+      "displayName": "Summary",
+      "cacheMinutes": 36000,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 2,
+      "searchAsYouType": true,
+      "search": {
+        "urlPath": "/page/summary/{q}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/page/summary/{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Title",
+          "path": "title",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Type",
+          "path": "type",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Lang",
+          "path": "lang",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Timestamp",
+          "path": "timestamp",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Description",
+          "path": "description",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Extract",
+          "path": "extract",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Page",
+          "path": "content_urls.desktop.page",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "url"
+        },
+        {
+          "name": "Page Mobile",
+          "path": "content_urls.mobile.page",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "url"
+        },
+        {
+          "name": "Image",
+          "path": "originalimage.source",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "image",
+          "mementoRole": "thumb"
+        },
+        {
+          "name": "Wikibase item",
+          "path": "wikibase_item",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "a84153d0-9e6d-414c-8283-c2d620efa5a5",
+  "name": "Wikipedia",
+  "version": "1.0.0",
+  "exportDate": 1773339164045,
+  "$schema": "memento:connector-config"
+}

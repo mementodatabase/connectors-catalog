@@ -1,0 +1,192 @@
+{
+  "type": "REST",
+  "endpoint": "https://finnhub.io/api/v1",
+  "resources": [
+    {
+      "name": "611f7be4-fe36-46b3-8812-0c90a7ed021d",
+      "displayName": "Symbols",
+      "cacheMinutes": 36000,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "/search?q\u003d{q}",
+        "resultPath": "$.result",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Symbol",
+          "path": "symbol",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Description",
+          "path": "description",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Display Symbol",
+          "path": "displaySymbol",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "desc"
+        },
+        {
+          "name": "Type",
+          "path": "type",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "status"
+        }
+      ]
+    },
+    {
+      "name": "a33ef13c-20b6-4128-983c-51f8348930b4",
+      "displayName": "Companies",
+      "cacheMinutes": 3600,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": true,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "/search?q\u003d{q}",
+        "resultPath": "$.result",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/stock/profile2?symbol\u003d{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Name",
+          "path": "name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Ticker",
+          "path": "ticker",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Country",
+          "path": "country",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Currency",
+          "path": "currency",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Estimate Currency",
+          "path": "estimateCurrency",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Exchange",
+          "path": "exchange",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Finnhub Industry",
+          "path": "finnhubIndustry",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Ipo",
+          "path": "ipo",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Logo",
+          "path": "logo",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Market Capitalization",
+          "path": "marketCapitalization",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Phone",
+          "path": "phone",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Share Outstanding",
+          "path": "shareOutstanding",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Weburl",
+          "path": "weburl",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Symbol",
+          "path": "symbol",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "List name",
+          "path": "description",
+          "type": "STRING",
+          "formatter": ""
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "API_KEY",
+    "keyPlacement": "QUERY",
+    "keyName": "token"
+  },
+  "id": "678b2abe-3833-4373-9138-039a526d0aad",
+  "name": "Finhub",
+  "version": "1.0.0",
+  "exportDate": 1773289645764,
+  "$schema": "memento:connector-config"
+}

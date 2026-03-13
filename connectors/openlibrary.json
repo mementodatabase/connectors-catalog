@@ -1,0 +1,140 @@
+{
+  "type": "REST",
+  "endpoint": "https://openlibrary.org",
+  "resources": [
+    {
+      "name": "Books",
+      "displayName": "Books",
+      "cacheMinutes": 3600,
+      "cacheRawResponse": true,
+      "rateLimit": 2,
+      "useLookup": false,
+      "lookupBatchSize": 3,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/search.json?q\u003d{q}\u0026limit\u003d50",
+        "resultPath": "$.docs",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "ID",
+          "path": "key",
+          "type": "UUID"
+        },
+        {
+          "name": "Title",
+          "path": "title",
+          "type": "STRING"
+        },
+        {
+          "name": "Author",
+          "path": "author_name[*]",
+          "type": "STRING",
+          "formatter": "{value|join(\", \")}",
+          "mementoRole": "desc"
+        },
+        {
+          "name": "Cover",
+          "path": "cover_i",
+          "type": "STRING",
+          "formatter": "https://covers.openlibrary.org/b/id/{value}-L.jpg",
+          "mementoType": "image",
+          "mementoRole": "thumb"
+        },
+        {
+          "name": "Edition count",
+          "path": "edition_count",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "First publish year",
+          "path": "first_publish_year",
+          "type": "NUMBER",
+          "formatter": ""
+        }
+      ]
+    },
+    {
+      "name": "Authors",
+      "displayName": "Authors",
+      "cacheMinutes": 36000,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": true,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/search/authors.json?q\u003d{q}",
+        "resultPath": "$.docs",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/authors/{id}.json",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "id",
+          "path": "$.key",
+          "type": "UUID",
+          "formatter": "{value | replace(\"/authors/\",\"\")}"
+        },
+        {
+          "name": "Name",
+          "path": "$.name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Birth Date",
+          "path": "$.birth_date",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Bio",
+          "path": "$.bio.value",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Photo",
+          "path": "$.key",
+          "type": "STRING",
+          "formatter": "https://covers.openlibrary.org/a/olid/{value | replace(\"/authors/\",\"\")}-L.jpg",
+          "mementoType": "image",
+          "mementoRole": "thumb"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY"
+  },
+  "id": "8309e93f-f858-44f8-956b-20908ff85dc2",
+  "name": "Open Library",
+  "version": "1.0.0",
+  "exportDate": 1773352163831,
+  "$schema": "memento:connector-config"
+}

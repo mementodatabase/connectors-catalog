@@ -1,0 +1,113 @@
+{
+  "type": "REST",
+  "endpoint": "https://dogapi.dog/api/v2/",
+  "resources": [
+    {
+      "name": "2edf518d-7690-4429-9f01-961fb54eb874",
+      "displayName": "Dogs",
+      "cacheMinutes": 360000,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "breeds?page_size\u003d300",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Id",
+          "path": "id",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Name",
+          "path": "attributes.name",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Description",
+          "path": "attributes.description",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Max Life",
+          "path": "attributes.life.max",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "int"
+        },
+        {
+          "name": "Min Life",
+          "path": "attributes.life.min",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "int"
+        },
+        {
+          "name": "Max male weight",
+          "path": "attributes.male_weight.max",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "int"
+        },
+        {
+          "name": "Min male weight",
+          "path": "attributes.male_weight.min",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "int"
+        },
+        {
+          "name": "Max female weight",
+          "path": "attributes.female_weight.max",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "int"
+        },
+        {
+          "name": "Min female weight",
+          "path": "attributes.female_weight.min",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "int"
+        },
+        {
+          "name": "Hypoallergenic",
+          "path": "attributes.hypoallergenic",
+          "type": "BOOLEAN",
+          "formatter": "",
+          "mementoType": "boolean"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "10cc6b53-fc3d-4278-9211-0f0f6dc252c6",
+  "name": "Dogs",
+  "version": "1.0.0",
+  "exportDate": 1773278813887,
+  "$schema": "memento:connector-config"
+}

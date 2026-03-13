@@ -1,0 +1,628 @@
+{
+  "type": "REST",
+  "endpoint": "https://api.stripe.com/v1",
+  "resources": [
+    {
+      "name": "99d72bc0-e432-47d0-afee-82d78d99961d",
+      "displayName": "Customers",
+      "cacheMinutes": 0,
+      "cacheRawResponse": false,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/customers/search?query\u003dname%3A%27{q}%27\u0026limit\u003d50",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/customers/{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "/customers?limit\u003d100",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "ID",
+          "path": "id",
+          "type": "UUID",
+          "formatter": ""
+        },
+        {
+          "name": "Name",
+          "path": "name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Business name",
+          "path": "business_name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Address",
+          "path": "address",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Balance",
+          "path": "balance",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Created",
+          "path": "created",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Currency",
+          "path": "currency",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Customer account",
+          "path": "customer_account",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Default source",
+          "path": "default_source",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Delinquent",
+          "path": "delinquent",
+          "type": "BOOLEAN",
+          "formatter": ""
+        },
+        {
+          "name": "Description",
+          "path": "description",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Discount",
+          "path": "discount",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Email",
+          "path": "email",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Invoice prefix",
+          "path": "invoice_prefix",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Next invoice sequence",
+          "path": "next_invoice_sequence",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Phone",
+          "path": "phone",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Shipping Address",
+          "path": "shipping.address",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Tax exempt",
+          "path": "tax_exempt",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "URL",
+          "path": "id",
+          "type": "STRING",
+          "formatter": "https://dashboard.stripe.com/customers/{value}"
+        }
+      ]
+    },
+    {
+      "name": "499c01dc-5f99-4dde-82ff-dd3842d7217c",
+      "displayName": "Products",
+      "cacheMinutes": 0,
+      "cacheRawResponse": false,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/products/search?query\u003dname%3A%27{q}%27\u0026limit\u003d50\u0026expand[]\u003ddata.default_price",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/products/{id}?expand[]\u003ddefault_price",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "/products?limit\u003d100\u0026expand[]\u003ddata.default_price",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Id",
+          "path": "id",
+          "type": "UUID",
+          "formatter": ""
+        },
+        {
+          "name": "Name",
+          "path": "name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Active",
+          "path": "active",
+          "type": "BOOLEAN",
+          "formatter": ""
+        },
+        {
+          "name": "Created",
+          "path": "created",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Description",
+          "path": "description",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Images",
+          "path": "images",
+          "type": "STRING",
+          "formatter": "{value|join(\",\")}"
+        },
+        {
+          "name": "Price",
+          "path": "default_price.unit_amount",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Price Currency",
+          "path": "default_price.currency",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Price Type",
+          "path": "default_price.type",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Type",
+          "path": "type",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Unit label",
+          "path": "unit_label",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Updated",
+          "path": "updated",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "URL",
+          "path": "id",
+          "type": "STRING",
+          "formatter": "https://dashboard.stripe.com/products/{value}"
+        }
+      ]
+    },
+    {
+      "name": "ba98ea34-7c2c-4565-b577-e7cb5c3e99f8",
+      "displayName": "Invoices",
+      "cacheMinutes": 0,
+      "cacheRawResponse": false,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/invoices/search?query\u003dnumber%3A%27{q}%27\u0026limit\u003d50",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/invoices/{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "/invoices?limit\u003d100",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Id",
+          "path": "id",
+          "type": "UUID",
+          "formatter": ""
+        },
+        {
+          "name": "Number",
+          "path": "number",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Account country",
+          "path": "account_country",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Account name",
+          "path": "account_name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Account tax ids",
+          "path": "account_tax_ids",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Amount due",
+          "path": "amount_due",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Amount overpaid",
+          "path": "amount_overpaid",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Amount paid",
+          "path": "amount_paid",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Amount remaining",
+          "path": "amount_remaining",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Amount shipping",
+          "path": "amount_shipping",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Application",
+          "path": "application",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Attempt count",
+          "path": "attempt_count",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Attempted",
+          "path": "attempted",
+          "type": "BOOLEAN",
+          "formatter": ""
+        },
+        {
+          "name": "Auto advance",
+          "path": "auto_advance",
+          "type": "BOOLEAN",
+          "formatter": ""
+        },
+        {
+          "name": "Automatically finalizes at",
+          "path": "automatically_finalizes_at",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Billing reason",
+          "path": "billing_reason",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Collection method",
+          "path": "collection_method",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Created",
+          "path": "created",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Currency",
+          "path": "currency",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Custom fields",
+          "path": "custom_fields",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Customer account",
+          "path": "customer_account",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Customer email",
+          "path": "customer_email",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Customer name",
+          "path": "customer_name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Customer phone",
+          "path": "customer_phone",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Customer tax exempt",
+          "path": "customer_tax_exempt",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Default payment method",
+          "path": "default_payment_method",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Default source",
+          "path": "default_source",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Description",
+          "path": "description",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Due date",
+          "path": "due_date",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Effective at",
+          "path": "effective_at",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Ending balance",
+          "path": "ending_balance",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Footer",
+          "path": "footer",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "From invoice",
+          "path": "from_invoice",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Hosted invoice url",
+          "path": "hosted_invoice_url",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Invoice pdf",
+          "path": "invoice_pdf",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Last finalization error",
+          "path": "last_finalization_error",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Latest revision",
+          "path": "latest_revision",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Livemode",
+          "path": "livemode",
+          "type": "BOOLEAN",
+          "formatter": ""
+        },
+        {
+          "name": "Next payment attempt",
+          "path": "next_payment_attempt",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "On behalf of",
+          "path": "on_behalf_of",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Parent",
+          "path": "parent",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Period end",
+          "path": "period_end",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Period start",
+          "path": "period_start",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Post payment credit notes amount",
+          "path": "post_payment_credit_notes_amount",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Pre payment credit notes amount",
+          "path": "pre_payment_credit_notes_amount",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Receipt number",
+          "path": "receipt_number",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Shipping cost",
+          "path": "shipping_cost",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Shipping details",
+          "path": "shipping_details",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Starting balance",
+          "path": "starting_balance",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Statement descriptor",
+          "path": "statement_descriptor",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Status",
+          "path": "status",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Subtotal",
+          "path": "subtotal",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Subtotal excluding tax",
+          "path": "subtotal_excluding_tax",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Test clock",
+          "path": "test_clock",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Total",
+          "path": "total",
+          "type": "NUMBER",
+          "formatter": ""
+        },
+        {
+          "name": "Total excluding tax",
+          "path": "total_excluding_tax",
+          "type": "NUMBER",
+          "formatter": ""
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "BEARER",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "d8f7a2c4-d7d9-44ac-b1be-8a0aff5a7b32",
+  "name": "Connector",
+  "version": "1.0.0",
+  "exportDate": 1773358828939,
+  "$schema": "memento:connector-config"
+}

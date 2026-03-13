@@ -1,0 +1,202 @@
+{
+  "type": "REST",
+  "endpoint": "https://api.nal.usda.gov/fdc/v1",
+  "resources": [
+    {
+      "name": "5b3d9c23-fe58-4d00-987a-5da6313f58f5",
+      "displayName": "Foods",
+      "cacheMinutes": 36000,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/search?query\u003d{q}",
+        "resultPath": "$.foods",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Fdc Id",
+          "path": "fdcId",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Brand Name",
+          "path": "brandName",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "desc"
+        },
+        {
+          "name": "Description",
+          "path": "description",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Data Type",
+          "path": "dataType",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Gtin Upc",
+          "path": "gtinUpc",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Published Date",
+          "path": "publishedDate",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "status"
+        },
+        {
+          "name": "Brand Owner",
+          "path": "brandOwner",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Ingredients",
+          "path": "ingredients",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "richtext"
+        },
+        {
+          "name": "Market Country",
+          "path": "marketCountry",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Food Category",
+          "path": "foodCategory",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "status"
+        },
+        {
+          "name": "Modified Date",
+          "path": "modifiedDate",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Data Source",
+          "path": "dataSource",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Package Weight",
+          "path": "packageWeight",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Serving Size Unit",
+          "path": "servingSizeUnit",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Serving Size",
+          "path": "servingSize",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Household Serving Full Text",
+          "path": "householdServingFullText",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "All Highlight Fields",
+          "path": "allHighlightFields",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Score",
+          "path": "score",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Protein",
+          "path": "foodNutrients[?(@.nutrientName\u003d\u003d\u0027Protein\u0027)].value",
+          "type": "NUMBER",
+          "formatter": "{value|index(0)}",
+          "mementoType": "double"
+        },
+        {
+          "name": "Energy",
+          "path": "foodNutrients[?(@.nutrientName\u003d\u003d\u0027Energy\u0027)].value",
+          "type": "NUMBER",
+          "formatter": "{value|index(0)}",
+          "mementoType": "double"
+        },
+        {
+          "name": "Total lipid (fat)",
+          "path": "foodNutrients[?(@.nutrientName\u003d\u003d\u0027Total lipid (fat)\u0027)].value",
+          "type": "NUMBER",
+          "formatter": "{value|index(0)}",
+          "mementoType": "double"
+        },
+        {
+          "name": "Total Sugars",
+          "path": "foodNutrients[?(@.nutrientName\u003d\u003d\u0027Total Sugars\u0027)].value",
+          "type": "NUMBER",
+          "formatter": "{value|index(0)}",
+          "mementoType": "double"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "API_KEY",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "e45b3edf-177f-4fd5-97d2-cfbb5a42a793",
+  "name": "USDA Food Data",
+  "version": "1.0.0",
+  "exportDate": 1773349127017,
+  "$schema": "memento:connector-config"
+}

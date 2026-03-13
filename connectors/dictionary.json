@@ -1,0 +1,80 @@
+{
+  "type": "REST",
+  "endpoint": "https://api.dictionaryapi.dev/api/v2",
+  "resources": [
+    {
+      "name": "473c38dc-e3b6-4e22-94ce-e4055f5d8f1c",
+      "displayName": "Entries",
+      "cacheMinutes": 360000,
+      "rateLimit": 5,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 2,
+      "search": {
+        "urlPath": "/entries/en/{q}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/entries/en/{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Word",
+          "path": "word",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Phonetic",
+          "path": "phonetic",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "desc"
+        },
+        {
+          "name": "Audio",
+          "path": "phonetics[0].audio",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "url"
+        },
+        {
+          "name": "Part Of Speech",
+          "path": "meanings.[*].partOfSpeech",
+          "type": "STRING",
+          "formatter": "{value|join(\", \")}",
+          "mementoType": "text",
+          "mementoRole": "status"
+        },
+        {
+          "name": "Definitions",
+          "path": "meanings.[*].definitions.[*].definition",
+          "type": "STRING",
+          "formatter": "{value|join(\"; \")}",
+          "mementoType": "text"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "89e55f66-26c7-45cd-aab6-35095fc7b335",
+  "name": "Dictionary",
+  "version": "1.0.0",
+  "exportDate": 1773283185135,
+  "$schema": "memento:connector-config"
+}

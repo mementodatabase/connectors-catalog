@@ -1,0 +1,292 @@
+{
+  "type": "REST",
+  "endpoint": "https://api.jikan.moe/v4/",
+  "resources": [
+    {
+      "name": "52e097bf-14e4-4c9f-b443-ae746fe43322",
+      "displayName": "Anime",
+      "cacheMinutes": 36000,
+      "rateLimit": 2,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "anime?q\u003d{q}",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "anime/{id}",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Mal id",
+          "path": "mal_id",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Url",
+          "path": "url",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "url"
+        },
+        {
+          "name": "Approved",
+          "path": "approved",
+          "type": "BOOLEAN",
+          "formatter": "",
+          "mementoType": "boolean"
+        },
+        {
+          "name": "Title",
+          "path": "title",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Title english",
+          "path": "title_english",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Title japanese",
+          "path": "title_japanese",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Image",
+          "path": "images.jpg.image_url",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "image",
+          "mementoRole": "thumb"
+        },
+        {
+          "name": "Type",
+          "path": "type",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Source",
+          "path": "source",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Episodes",
+          "path": "episodes",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Status",
+          "path": "status",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Airing",
+          "path": "airing",
+          "type": "BOOLEAN",
+          "formatter": "",
+          "mementoType": "boolean"
+        },
+        {
+          "name": "Duration",
+          "path": "duration",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Rating",
+          "path": "rating",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Score",
+          "path": "score",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Scored by",
+          "path": "scored_by",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Rank",
+          "path": "rank",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Popularity",
+          "path": "popularity",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Members",
+          "path": "members",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Favorites",
+          "path": "favorites",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Synopsis",
+          "path": "synopsis",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Background",
+          "path": "background",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Season",
+          "path": "season",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Year",
+          "path": "year",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "desc"
+        },
+        {
+          "name": "Genres",
+          "path": "genres.[*].name",
+          "type": "STRING",
+          "formatter": "{value|join(\", \")}",
+          "mementoType": "text"
+        }
+      ]
+    },
+    {
+      "name": "3187473e-7c86-4ddd-a328-7cf989d0746f",
+      "displayName": "Characters",
+      "cacheMinutes": 36000,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "characters?q\u003d{q}\u0026limit\u003d20",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "characters/{id}",
+        "resultPath": "$.data",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "ID",
+          "path": "mal_id",
+          "type": "UUID",
+          "formatter": ""
+        },
+        {
+          "name": "Url",
+          "path": "url",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "url"
+        },
+        {
+          "name": "Name",
+          "path": "name",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Name kanji",
+          "path": "name_kanji",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Favorites",
+          "path": "favorites",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "About",
+          "path": "about",
+          "type": "STRING",
+          "formatter": ""
+        },
+        {
+          "name": "Image",
+          "path": "images.jpg.image_url",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "image",
+          "mementoRole": "thumb"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "4af29539-0dac-4996-aeb2-1bf3912035bd",
+  "name": "Jikan",
+  "version": "1.0.0",
+  "exportDate": 1773281099241,
+  "$schema": "memento:connector-config"
+}

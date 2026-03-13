@@ -1,0 +1,114 @@
+{
+  "type": "REST",
+  "endpoint": "https://www.fruityvice.com",
+  "resources": [
+    {
+      "name": "44a4baa9-73f7-46f8-a658-8082bbc0bb89",
+      "displayName": "Fruit",
+      "cacheMinutes": 360000,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "/api/fruit/{q}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/api/fruit/{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "/api/fruit/all",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Id",
+          "path": "id",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Name",
+          "path": "name",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Family",
+          "path": "family",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Order",
+          "path": "order",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Genus",
+          "path": "genus",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Calories",
+          "path": "nutritions.calories",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Fat",
+          "path": "nutritions.fat",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Sugar",
+          "path": "nutritions.sugar",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Carbohydrates",
+          "path": "nutritions.carbohydrates",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Protein",
+          "path": "nutritions.protein",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "65a85ae5-0e96-4d3c-a03a-36fa2b804be2",
+  "name": "Fruityvice",
+  "version": "1.0.0",
+  "exportDate": 1773290856562,
+  "$schema": "memento:connector-config"
+}

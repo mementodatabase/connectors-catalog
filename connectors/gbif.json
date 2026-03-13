@@ -1,0 +1,173 @@
+{
+  "type": "REST",
+  "endpoint": "https://api.gbif.org/v1",
+  "resources": [
+    {
+      "name": "adf33d21-2daf-4198-9340-14d36059a83e",
+      "displayName": "Species",
+      "cacheMinutes": 3600,
+      "cacheRawResponse": true,
+      "rateLimit": 10,
+      "useLookup": false,
+      "lookupBatchSize": 1,
+      "minSearchLength": 3,
+      "searchAsYouType": false,
+      "search": {
+        "urlPath": "/species/search?q\u003d{q}\u0026qField\u003dSCIENTIFIC\u0026rank\u003dSPECIES\u0026limit\u003d100",
+        "resultPath": "$.results",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/species/{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "",
+        "resultPath": "",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "Parent",
+          "path": "parent",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Kingdom",
+          "path": "kingdom",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "status"
+        },
+        {
+          "name": "Family",
+          "path": "family",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Species",
+          "path": "species",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Scientific Name",
+          "path": "scientificName",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "desc"
+        },
+        {
+          "name": "Canonical Name",
+          "path": "canonicalName",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Vernacular Names",
+          "path": "vernacularName",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Authorship",
+          "path": "authorship",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Published In",
+          "path": "publishedIn",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Name Type",
+          "path": "nameType",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Taxonomic Status",
+          "path": "taxonomicStatus",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Rank",
+          "path": "rank",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Origin",
+          "path": "origin",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Descriptions",
+          "path": "descriptions.[*].description",
+          "type": "STRING",
+          "formatter": "{value | join(\" - \") }",
+          "mementoType": "text"
+        },
+        {
+          "name": "Key",
+          "path": "key",
+          "type": "UUID",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Phylum",
+          "path": "phylum",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Class",
+          "path": "class",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "References",
+          "path": "references",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "QUERY",
+    "keyName": "api_key"
+  },
+  "id": "6a857ef6-eed1-41c8-a7e4-40b8f44acb04",
+  "name": "GBIF",
+  "version": "1.0.0",
+  "exportDate": 1773343750974,
+  "$schema": "memento:connector-config"
+}

@@ -1,0 +1,110 @@
+{
+  "type": "REST",
+  "endpoint": "https://restcountries.com/v3.1",
+  "resources": [
+    {
+      "name": "Countries",
+      "displayName": "Countries",
+      "cacheMinutes": 360000,
+      "rateLimit": 20,
+      "useLookup": true,
+      "lookupBatchSize": 20,
+      "minSearchLength": 3,
+      "search": {
+        "urlPath": "/name/{q}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "lookup": {
+        "urlPath": "/alpha?codes\u003d{id}",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "list": {
+        "urlPath": "/all?fields\u003dname,cca2,population,flags",
+        "resultPath": "$",
+        "method": "GET"
+      },
+      "mapping": [
+        {
+          "name": "ID",
+          "path": "cca2",
+          "type": "UUID",
+          "mementoType": "text"
+        },
+        {
+          "name": "Name",
+          "path": "name.common",
+          "type": "STRING",
+          "mementoType": "text",
+          "mementoRole": "name"
+        },
+        {
+          "name": "Capital",
+          "path": "capital[0]",
+          "type": "STRING",
+          "mementoType": "text"
+        },
+        {
+          "name": "Flag",
+          "path": "flags.png",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "image",
+          "mementoRole": "thumb"
+        },
+        {
+          "name": "Region",
+          "path": "region",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Subregion",
+          "path": "subregion",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "text"
+        },
+        {
+          "name": "Population",
+          "path": "population",
+          "type": "NUMBER",
+          "mementoType": "double"
+        },
+        {
+          "name": "Area",
+          "path": "area",
+          "type": "NUMBER",
+          "formatter": "",
+          "mementoType": "double"
+        },
+        {
+          "name": "Currency",
+          "path": "currencies.*.name",
+          "type": "STRING",
+          "formatter": "{value | join(\", \")}",
+          "mementoType": "text"
+        },
+        {
+          "name": "Map",
+          "path": "maps.googleMaps",
+          "type": "STRING",
+          "formatter": "",
+          "mementoType": "url"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "NONE",
+    "keyPlacement": "HEADER",
+    "keyName": "key"
+  },
+  "id": "68488143-2e25-4ee2-9ef7-97a2492a91fc",
+  "name": "Countries",
+  "version": "1.0.0",
+  "exportDate": 1773258589553,
+  "$schema": "memento:connector-config"
+}

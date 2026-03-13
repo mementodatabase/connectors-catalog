@@ -1,0 +1,79 @@
+{
+    "items": [{
+            "id": "restcountries",
+            "name": "Countries",
+            "description": "Add country data to your library — capitals, populations, currencies, flags, languages, and more.",
+            "website_url": "https://restcountries.com"
+        }, {
+            "id": "tmdb",
+            "name": "The Movie Database (TMDB)",
+            "description": "Build a movie or TV show collection with ratings, cast, posters, and release dates. Requires an API key.",
+            "auth_type": "API_KEY",
+            "website_url": "https://www.themoviedb.org",
+            "api_docs_url": "https://developer.themoviedb.org/reference/intro/getting-started",
+            "get_key_url": "https://www.themoviedb.org/settings/api"
+        }, {
+            "id": "openlibrary",
+            "name": "Open Library",
+            "description": "Catalog your books with titles, authors, covers, and editions from the world's largest open book database. No API key required.",
+            "website_url": "https://openlibrary.org"
+        }, {
+            "id": "dictionary",
+            "name": "Dictionary",
+            "description": "Look up English word definitions, phonetics, synonyms, antonyms, and example sentences. No API key required.",
+            "website_url": "https://dictionaryapi.dev"
+        }, {
+            "id": "dogs",
+            "name": "Dogs",
+            "description": "Browse dog breeds with descriptions, temperaments, life expectancy, and weight info. No API key required.",
+            "website_url": "https://dogapi.dog"
+        }, {
+            "id": "finhub",
+            "name": "Finnhub",
+            "description": "Search stock symbols and financial market data including company profiles and quotes. Requires an API key.",
+            "auth_type": "API_KEY",
+            "website_url": "https://finnhub.io",
+            "api_docs_url": "https://finnhub.io/docs/api",
+            "get_key_url": "https://finnhub.io/register"
+        }, {
+            "id": "fruityvice",
+            "name": "Fruityvice",
+            "description": "Explore fruits with nutritional facts including calories, sugar, fat, and carbohydrates. No API key required.",
+            "website_url": "https://www.fruityvice.com"
+        }, {
+            "id": "gbif",
+            "name": "GBIF Species",
+            "description": "Search biodiversity species records from the Global Biodiversity Information Facility. No API key required.",
+            "website_url": "https://www.gbif.org",
+            "api_docs_url": "https://www.gbif.org/developer/species"
+        }, {
+            "id": "jikan",
+            "name": "Jikan (MyAnimeList)",
+            "description": "Search anime and manga titles with ratings, genres, synopses, and episode counts via the MyAnimeList API. No API key required.",
+            "website_url": "https://jikan.moe",
+            "api_docs_url": "https://docs.api.jikan.moe"
+        }, {
+            "id": "stripe",
+            "name": "Stripe",
+            "description": "Search your Stripe customers and payment data. Requires a Stripe secret API key.",
+            "auth_type": "BEARER",
+            "website_url": "https://stripe.com",
+            "api_docs_url": "https://stripe.com/docs/api",
+            "get_key_url": "https://dashboard.stripe.com/apikeys"
+        }, {
+            "id": "usda_food_data",
+            "name": "USDA Food Data",
+            "description": "Search the USDA FoodData Central for detailed nutritional information on thousands of foods. Requires an API key.",
+            "auth_type": "API_KEY",
+            "website_url": "https://fdc.nal.usda.gov",
+            "api_docs_url": "https://fdc.nal.usda.gov/api-guide.html",
+            "get_key_url": "https://fdc.nal.usda.gov/api-key-signup.html"
+        }, {
+            "id": "wikipedia",
+            "name": "Wikipedia",
+            "description": "Fetch article summaries and introductions from Wikipedia. No API key required.",
+            "website_url": "https://www.wikipedia.org",
+            "api_docs_url": "https://en.wikipedia.org/api/rest_v1/#/Page%20content"
+        }
+    ]
+}
