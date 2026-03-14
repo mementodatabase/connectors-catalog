@@ -6,14 +6,20 @@
       "name": "52e097bf-14e4-4c9f-b443-ae746fe43322",
       "displayName": "Anime",
       "cacheMinutes": 36000,
+      "cacheRawResponse": false,
       "rateLimit": 2,
       "useLookup": false,
       "lookupBatchSize": 1,
       "minSearchLength": 3,
+      "searchAsYouType": false,
       "search": {
-        "urlPath": "anime?q\u003d{q}",
+        "urlPath": "anime?q\u003d{q}\u0026page\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "PAGE",
+          "totalCountPath": "$.pagination.last_visible_page"
+        }
       },
       "lookup": {
         "urlPath": "anime/{id}",
@@ -23,7 +29,10 @@
       "list": {
         "urlPath": "",
         "resultPath": "",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -210,14 +219,20 @@
       "name": "3187473e-7c86-4ddd-a328-7cf989d0746f",
       "displayName": "Characters",
       "cacheMinutes": 36000,
+      "cacheRawResponse": true,
       "rateLimit": 10,
       "useLookup": false,
       "lookupBatchSize": 1,
       "minSearchLength": 3,
+      "searchAsYouType": false,
       "search": {
-        "urlPath": "characters?q\u003d{q}\u0026limit\u003d20",
+        "urlPath": "characters?q\u003d{q}\u0026limit\u003d20\u0026page\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "PAGE",
+          "totalCountPath": "$.pagination.last_visible_page"
+        }
       },
       "lookup": {
         "urlPath": "characters/{id}",
@@ -227,7 +242,10 @@
       "list": {
         "urlPath": "",
         "resultPath": "",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -287,6 +305,6 @@
   "id": "4af29539-0dac-4996-aeb2-1bf3912035bd",
   "name": "Jikan",
   "version": "1.0.0",
-  "exportDate": 1773281099241,
+  "exportDate": 1773466820835,
   "$schema": "memento:connector-config"
 }

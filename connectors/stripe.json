@@ -13,9 +13,15 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/customers/search?query\u003dname%3A%27{q}%27\u0026limit\u003d50",
+        "urlPath": "/customers/search?query\u003dname%3A%27{q}%27\u0026limit\u003d100\u0026page\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "CURSOR",
+          "nextPageCursorPath": "$.next_page",
+          "firstPageIndex": 1,
+          "pageSize": 50
+        }
       },
       "lookup": {
         "urlPath": "/customers/{id}",
@@ -23,9 +29,15 @@
         "method": "GET"
       },
       "list": {
-        "urlPath": "/customers?limit\u003d100",
+        "urlPath": "/customers?limit\u003d100\u0026starting_after\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "CURSOR",
+          "nextPageCursorPath": "$.data[-1].id",
+          "firstPageIndex": 1,
+          "pageSize": 50
+        }
       },
       "mapping": [
         {
@@ -155,9 +167,15 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/products/search?query\u003dname%3A%27{q}%27\u0026limit\u003d50\u0026expand[]\u003ddata.default_price",
+        "urlPath": "/products/search?query\u003dname%3A%27{q}%27\u0026limit\u003d100\u0026expand[]\u003ddata.default_price\u0026page\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "CURSOR",
+          "nextPageCursorPath": "$.next_page",
+          "firstPageIndex": 1,
+          "pageSize": 50
+        }
       },
       "lookup": {
         "urlPath": "/products/{id}?expand[]\u003ddefault_price",
@@ -165,9 +183,15 @@
         "method": "GET"
       },
       "list": {
-        "urlPath": "/products?limit\u003d100\u0026expand[]\u003ddata.default_price",
+        "urlPath": "/products?limit\u003d100\u0026expand[]\u003ddata.default_price\u0026starting_after\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "CURSOR",
+          "nextPageCursorPath": "$.data[-1].id",
+          "firstPageIndex": 1,
+          "pageSize": 50
+        }
       },
       "mapping": [
         {
@@ -261,9 +285,15 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/invoices/search?query\u003dnumber%3A%27{q}%27\u0026limit\u003d50",
+        "urlPath": "/invoices/search?query\u003dnumber%3A%27{q}%27\u0026limit\u003d100\u0026page\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "CURSOR",
+          "nextPageCursorPath": "$.next_page",
+          "firstPageIndex": 1,
+          "pageSize": 50
+        }
       },
       "lookup": {
         "urlPath": "/invoices/{id}",
@@ -271,9 +301,15 @@
         "method": "GET"
       },
       "list": {
-        "urlPath": "/invoices?limit\u003d100",
+        "urlPath": "/invoices?limit\u003d100\u0026starting_after\u003d{p}",
         "resultPath": "$.data",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "CURSOR",
+          "nextPageCursorPath": "$.data[-1].id",
+          "firstPageIndex": 1,
+          "pageSize": 50
+        }
       },
       "mapping": [
         {
@@ -623,6 +659,6 @@
   "id": "d8f7a2c4-d7d9-44ac-b1be-8a0aff5a7b32",
   "name": "Connector",
   "version": "1.0.0",
-  "exportDate": 1773358828939,
+  "exportDate": 1773457727177,
   "$schema": "memento:connector-config"
 }

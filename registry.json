@@ -16,7 +16,8 @@
             "id": "openlibrary",
             "name": "Open Library",
             "description": "Catalog your books with titles, authors, covers, and editions from the world's largest open book database. No API key required.",
-            "website_url": "https://openlibrary.org"
+            "website_url": "https://openlibrary.org" ,
+	    "api_docs_url":"https://openlibrary.org/developers/api"
         }, {
             "id": "dictionary",
             "name": "Dictionary",

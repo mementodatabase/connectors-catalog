@@ -13,9 +13,13 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/search.json?q\u003d{q}\u0026limit\u003d50",
+        "urlPath": "/search.json?q\u003d{q}\u0026limit\u003d50\u0026offset\u003d{p}",
         "resultPath": "$.docs",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "OFFSET",
+          "totalCountPath": "$.num_found"
+        }
       },
       "lookup": {
         "urlPath": "",
@@ -25,24 +29,31 @@
       "list": {
         "urlPath": "",
         "resultPath": "$",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
           "name": "ID",
           "path": "key",
-          "type": "UUID"
+          "type": "UUID",
+          "mementoType": "text"
         },
         {
           "name": "Title",
           "path": "title",
-          "type": "STRING"
+          "type": "STRING",
+          "mementoType": "text",
+          "mementoRole": "name"
         },
         {
           "name": "Author",
           "path": "author_name[*]",
           "type": "STRING",
           "formatter": "{value|join(\", \")}",
+          "mementoType": "text",
           "mementoRole": "desc"
         },
         {
@@ -57,20 +68,23 @@
           "name": "Edition count",
           "path": "edition_count",
           "type": "NUMBER",
-          "formatter": ""
+          "formatter": "",
+          "mementoType": "double"
         },
         {
           "name": "First publish year",
           "path": "first_publish_year",
           "type": "NUMBER",
-          "formatter": ""
+          "formatter": "",
+          "mementoType": "double",
+          "mementoRole": "status"
         }
       ]
     },
     {
       "name": "Authors",
       "displayName": "Authors",
-      "cacheMinutes": 36000,
+      "cacheMinutes": 3600,
       "cacheRawResponse": true,
       "rateLimit": 10,
       "useLookup": true,
@@ -78,9 +92,13 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/search/authors.json?q\u003d{q}",
+        "urlPath": "/search/authors.json?q\u003d{q}\u0026offset\u003d{p}",
         "resultPath": "$.docs",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "OFFSET",
+          "totalCountPath": "$.numFound"
+        }
       },
       "lookup": {
         "urlPath": "/authors/{id}.json",
@@ -90,7 +108,10 @@
       "list": {
         "urlPath": "",
         "resultPath": "$",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -121,9 +142,7 @@
           "name": "Photo",
           "path": "$.key",
           "type": "STRING",
-          "formatter": "https://covers.openlibrary.org/a/olid/{value | replace(\"/authors/\",\"\")}-L.jpg",
-          "mementoType": "image",
-          "mementoRole": "thumb"
+          "formatter": "https://covers.openlibrary.org/a/olid/{value | replace(\"/authors/\",\"\")}-L.jpg"
         }
       ]
     }
@@ -135,6 +154,6 @@
   "id": "8309e93f-f858-44f8-956b-20908ff85dc2",
   "name": "Open Library",
   "version": "1.0.0",
-  "exportDate": 1773352163831,
+  "exportDate": 1773466673403,
   "$schema": "memento:connector-config"
 }

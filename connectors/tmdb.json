@@ -6,14 +6,20 @@
       "name": "Movie",
       "displayName": "Movie",
       "cacheMinutes": 3600,
+      "cacheRawResponse": true,
       "rateLimit": 10,
       "useLookup": true,
       "lookupBatchSize": 1,
       "minSearchLength": 3,
+      "searchAsYouType": false,
       "search": {
-        "urlPath": "search/movie?query\u003d{q}",
+        "urlPath": "search/movie?query\u003d{q}\u0026page\u003d{p}",
         "resultPath": "$.results",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "PAGE",
+          "totalCountPath": "$.total_pages"
+        }
       },
       "lookup": {
         "urlPath": "movie/{id}",
@@ -23,7 +29,10 @@
       "list": {
         "urlPath": "",
         "resultPath": "$",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -161,14 +170,20 @@
       "name": "c69519c8-d927-4979-87a7-d0edc454bc0a",
       "displayName": "Person",
       "cacheMinutes": 3600,
+      "cacheRawResponse": true,
       "rateLimit": 10,
       "useLookup": true,
       "lookupBatchSize": 1,
       "minSearchLength": 3,
+      "searchAsYouType": false,
       "search": {
-        "urlPath": "search/person?query\u003d{q}",
+        "urlPath": "search/person?query\u003d{q}\u0026page\u003d{p}",
         "resultPath": "$.results",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "PAGE",
+          "totalCountPath": "$.total_pages"
+        }
       },
       "lookup": {
         "urlPath": "person/{id}",
@@ -178,46 +193,41 @@
       "list": {
         "urlPath": "",
         "resultPath": "",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
-           "mapping": [
+      "mapping": [
         {
           "name": "Id",
           "path": "id",
           "type": "UUID",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Name",
           "path": "name",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text",
-          "mementoRole": "name"
+          "formatter": ""
         },
         {
           "name": "Known for department",
           "path": "known_for_department",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text",
-          "mementoRole": "desc"
+          "formatter": ""
         },
         {
           "name": "Original name",
           "path": "original_name",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Profile ",
           "path": "profile_path",
           "type": "STRING",
-          "formatter": "https://image.tmdb.org/t/p/original{value}",
-          "mementoType": "image",
-          "mementoRole": "thumb"
+          "formatter": "https://image.tmdb.org/t/p/original{value}"
         },
         {
           "name": "Popularity",
@@ -230,29 +240,25 @@
           "name": "Known for",
           "path": "known_for.[*].title",
           "type": "STRING",
-          "formatter": "{value | join(\", \")}",
-          "mementoType": "text"
+          "formatter": "{value | join(\", \")}"
         },
         {
           "name": "Biography",
           "path": "biography",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Birthday",
           "path": "birthday",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Deathday",
           "path": "deathday",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Homepage",
@@ -265,15 +271,13 @@
           "name": "Imdb id",
           "path": "imdb_id",
           "type": "STRING",
-          "formatter": "https://www.imdb.com/name/{value}",
-          "mementoType": "url"
+          "formatter": "https://www.imdb.com/name/{value}"
         },
         {
           "name": "Place of birth",
           "path": "place_of_birth",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         }
       ]
     },
@@ -281,14 +285,20 @@
       "name": "a8c0ca70-04ee-4131-a6fe-62661d434395",
       "displayName": "TV",
       "cacheMinutes": 3600,
+      "cacheRawResponse": true,
       "rateLimit": 10,
       "useLookup": true,
       "lookupBatchSize": 1,
       "minSearchLength": 3,
+      "searchAsYouType": false,
       "search": {
-        "urlPath": "search/tv?query\u003d{q}",
+        "urlPath": "search/tv?query\u003d{q}\u0026page\u003d{p}",
         "resultPath": "$.results",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "PAGE",
+          "totalCountPath": "$.total_pages"
+        }
       },
       "lookup": {
         "urlPath": "tv/{id}",
@@ -298,23 +308,23 @@
       "list": {
         "urlPath": "",
         "resultPath": "",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
-           "mapping": [
+      "mapping": [
         {
           "name": "Name",
           "path": "name",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text",
-          "mementoRole": "name"
+          "formatter": ""
         },
         {
           "name": "Original name",
           "path": "original_name",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Original language",
@@ -355,8 +365,7 @@
           "name": "Adult",
           "path": "adult",
           "type": "BOOLEAN",
-          "formatter": "",
-          "mementoType": "boolean"
+          "formatter": ""
         },
         {
           "name": "Popularity",
@@ -377,22 +386,19 @@
           "name": "First air date",
           "path": "first_air_date",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Vote average",
           "path": "vote_average",
           "type": "NUMBER",
-          "formatter": "",
-          "mementoType": "double"
+          "formatter": ""
         },
         {
           "name": "Vote count",
           "path": "vote_count",
           "type": "NUMBER",
-          "formatter": "",
-          "mementoType": "double"
+          "formatter": ""
         },
         {
           "name": "ID",
@@ -406,70 +412,62 @@
           "path": "homepage",
           "type": "STRING",
           "formatter": "",
-          "mementoType": "text"
+          "mementoType": "url"
         },
         {
           "name": "In production",
           "path": "in_production",
           "type": "BOOLEAN",
-          "formatter": "",
-          "mementoType": "boolean"
+          "formatter": ""
         },
         {
           "name": "Last air date",
           "path": "last_air_date",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Next episode to air",
           "path": "next_episode_to_air",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Number of episodes",
           "path": "number_of_episodes",
           "type": "NUMBER",
-          "formatter": "",
-          "mementoType": "double"
+          "formatter": ""
         },
         {
           "name": "Number of seasons",
           "path": "number_of_seasons",
           "type": "NUMBER",
-          "formatter": "",
-          "mementoType": "double"
+          "formatter": ""
         },
         {
           "name": "Status",
           "path": "status",
           "type": "STRING",
           "formatter": "",
-          "mementoType": "text"
+          "mementoType": "tags"
         },
         {
           "name": "Type",
           "path": "type",
           "type": "STRING",
-          "formatter": "",
-          "mementoType": "text"
+          "formatter": ""
         },
         {
           "name": "Created By",
           "path": "created_by.[*].name",
           "type": "STRING",
-          "formatter": "{value | join(\", \")}",
-          "mementoType": "text"
+          "formatter": "{value | join(\", \")}"
         },
         {
           "name": "Network",
           "path": "networks.[*].name",
           "type": "STRING",
-          "formatter": "{value | join(\", \")}",
-          "mementoType": "text"
+          "formatter": "{value | join(\", \")}"
         }
       ]
     }
@@ -482,6 +480,6 @@
   "id": "cef84402-8521-41f4-b587-3424495f1a18",
   "name": "themoviedb.org",
   "version": "1.0.0",
-  "exportDate": 1773263467282,
+  "exportDate": 1773466741999,
   "$schema": "memento:connector-config"
 }

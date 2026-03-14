@@ -5,7 +5,7 @@
     {
       "name": "adf33d21-2daf-4198-9340-14d36059a83e",
       "displayName": "Species",
-      "cacheMinutes": 3600,
+      "cacheMinutes": 36000,
       "cacheRawResponse": true,
       "rateLimit": 10,
       "useLookup": false,
@@ -13,9 +13,13 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/species/search?q\u003d{q}\u0026qField\u003dSCIENTIFIC\u0026rank\u003dSPECIES\u0026limit\u003d100",
+        "urlPath": "/species/search?q\u003d{q}\u0026qField\u003dSCIENTIFIC\u0026rank\u003dSPECIES\u0026limit\u003d50\u0026offset\u003d{p}",
         "resultPath": "$.results",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "OFFSET",
+          "totalCountPath": "$.count"
+        }
       },
       "lookup": {
         "urlPath": "/species/{id}",
@@ -25,7 +29,10 @@
       "list": {
         "urlPath": "",
         "resultPath": "",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -168,6 +175,6 @@
   "id": "6a857ef6-eed1-41c8-a7e4-40b8f44acb04",
   "name": "GBIF",
   "version": "1.0.0",
-  "exportDate": 1773343750974,
+  "exportDate": 1773466855540,
   "$schema": "memento:connector-config"
 }

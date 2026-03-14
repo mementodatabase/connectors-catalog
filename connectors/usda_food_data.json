@@ -13,9 +13,13 @@
       "minSearchLength": 3,
       "searchAsYouType": false,
       "search": {
-        "urlPath": "/search?query\u003d{q}",
+        "urlPath": "/search?query\u003d{q}\u0026pageNumber\u003d{p}",
         "resultPath": "$.foods",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "PAGE",
+          "totalCountPath": "$.totalPages"
+        }
       },
       "lookup": {
         "urlPath": "",
@@ -25,7 +29,10 @@
       "list": {
         "urlPath": "",
         "resultPath": "",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -197,6 +204,6 @@
   "id": "e45b3edf-177f-4fd5-97d2-cfbb5a42a793",
   "name": "USDA Food Data",
   "version": "1.0.0",
-  "exportDate": 1773349127017,
+  "exportDate": 1773466873479,
   "$schema": "memento:connector-config"
 }
