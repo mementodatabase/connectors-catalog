@@ -5,15 +5,20 @@
     {
       "name": "Countries",
       "displayName": "Countries",
-      "cacheMinutes": 360000,
+      "cacheMinutes": 36000,
+      "cacheRawResponse": true,
       "rateLimit": 20,
-      "useLookup": true,
+      "useLookup": false,
       "lookupBatchSize": 20,
-      "minSearchLength": 3,
+      "minSearchLength": 2,
+      "searchAsYouType": true,
       "search": {
         "urlPath": "/name/{q}",
         "resultPath": "$",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "lookup": {
         "urlPath": "/alpha?codes\u003d{id}",
@@ -21,9 +26,12 @@
         "method": "GET"
       },
       "list": {
-        "urlPath": "/all?fields\u003dname,cca2,population,flags",
+        "urlPath": "/all?fields\u003dname,cca2,population,flags,area,region,subregion,currencies,maps,capital",
         "resultPath": "$",
-        "method": "GET"
+        "method": "GET",
+        "pagination": {
+          "type": "NONE"
+        }
       },
       "mapping": [
         {
@@ -105,6 +113,6 @@
   "id": "68488143-2e25-4ee2-9ef7-97a2492a91fc",
   "name": "Countries",
   "version": "1.0.0",
-  "exportDate": 1773258589553,
+  "exportDate": 1773683416474,
   "$schema": "memento:connector-config"
 }
